@@ -376,8 +376,12 @@ public abstract class Utils {
      */
     public static int getDecimals(float number) {
 
+        int baseNumberOfDecimals = 2;
+
         float i = roundToNextSignificant(number);
-        return (int) Math.ceil(-Math.log10(i)) + 2;
+        int decimals = (int) Math.ceil(-Math.log10(i)) + baseNumberOfDecimals;
+
+        return decimals > 0 ? decimals : baseNumberOfDecimals;
     }
 
     /**
